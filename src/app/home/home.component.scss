@@ -7,3 +7,25 @@ q {
   font-size: 1.2rem;
   quotes: "« " " »";
 }
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-container-card {
+  background-color: white;
+  border-radius: 1rem;
+  min-height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.calculate-button {
+  padding: 0.5rem 4rem;
+  background-color: #333333;
+  border: none !important;
+  color: white;
+}

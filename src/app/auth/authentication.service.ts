@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 export interface LoginContext {
   username: string;
@@ -14,25 +15,23 @@ export interface LoginContext {
  * The login/logout methods should be replaced with proper implementation.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
-  constructor(private credentialsService: CredentialsService) { }
+  constructor(public auth: AngularFireAuth, public credentialsService: CredentialsService) {}
 
   /**
    * Authenticates the user.
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(context: LoginContext): Observable<Credentials> {
+  login(context: LoginContext) {
+    return this.auth.signInWithEmailAndPassword(context.username, context.password);
     // Replace by proper authentication call
-    const data = {
-      username: context.username,
-      token: '123456'
-    };
-    this.credentialsService.setCredentials(data, context.remember);
-    return of(data);
+  }
+
+  register(registerInfo: any) {
+    return this.auth.createUserWithEmailAndPassword(registerInfo.email, registerInfo.password);
   }
 
   /**
@@ -41,8 +40,9 @@ export class AuthenticationService {
    */
   logout(): Observable<boolean> {
     // Customize credentials invalidation here
-    this.credentialsService.setCredentials();
+    this.auth.signOut().then(() => {
+      this.credentialsService.setCredentials();
+    });
     return of(true);
   }
-
 }

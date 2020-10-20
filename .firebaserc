@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "numbers-multiples": {
+      "hosting": {
+        "ng-x-rocket": [
+          "numbers-multiples"
+        ]
+      }
+    }
+  }
+}

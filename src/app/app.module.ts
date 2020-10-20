@@ -15,6 +15,10 @@ import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
   imports: [
@@ -25,16 +29,19 @@ import { AppRoutingModule } from './app-routing.module';
     TranslateModule.forRoot(),
     NgbModule,
     CoreModule,
+    SimpleNotificationsModule.forRoot(),
     SharedModule,
     ShellModule,
     HomeModule,
     AboutModule,
     AuthModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

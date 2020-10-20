@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { I18nModule } from '@app/i18n';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -15,10 +18,10 @@ import { LoginComponent } from './login.component';
     TranslateModule,
     NgbModule,
     I18nModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
   ],
-  declarations: [
-    LoginComponent
-  ]
+  declarations: [LoginComponent, RegisterComponent],
 })
-export class AuthModule { }
+export class AuthModule {}

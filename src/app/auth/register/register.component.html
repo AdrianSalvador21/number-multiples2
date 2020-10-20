@@ -1,11 +1,7 @@
 <div class="login-container login-bg">
   <div class="login-box">
-    <!-- <h1 translate>APP_NAME</h1> -->
     <div>
-      <!-- <h6 class="d-inline-block">v{{version}}</h6> -->
-      <div class="d-inline-block ml-3">
-        <!-- <app-language-selector></app-language-selector> -->
-      </div>
+      <div class="d-inline-block ml-3"></div>
     </div>
     <div class="container">
       <div class="card col-md-6 mx-auto login-card">
@@ -16,15 +12,16 @@
 
           <h4 class="login-title">Sign In</h4>
 
-          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+          <form (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
             <div class="form-group mb-0">
-              <label class="d-block">
+              <label class="d-block"
+                >s
                 <input
                   type="text"
                   class="form-control"
-                  formControlName="username"
+                  formControlName="email"
                   autocomplete="username"
-                  [placeholder]="'Username' | translate"
+                  [placeholder]="'Email' | translate"
                 />
                 <span hidden translate>Username</span>
               </label>
@@ -39,16 +36,25 @@
                 />
                 <span hidden translate>Password</span>
               </label>
+              <label class="d-block">
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password2"
+                  autocomplete="current-password"
+                  [placeholder]="'Repeat password' | translate"
+                  required
+                />
+                <span hidden translate>Confirm Password</span>
+              </label>
             </div>
 
             <div class="w-100 register-label">
-              <span class="text-muted text-end" routerLink="/register">You do not have an account? Sign up</span>
+              <span class="text-muted text-end" routerLink="/login">You have an account? Log in</span>
             </div>
             <div class="w-100 display-center">
-              <!--[disabled]="loginForm.invalid || isLoading"  -->
               <button class="btn login-btn mt-2" type="submit">
-                <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
-                <span translate>Entrar</span>
+                <span translate>Register</span>
               </button>
             </div>
           </form>
@@ -57,5 +63,3 @@
     </div>
   </div>
 </div>
-
-<div class="row"></div>

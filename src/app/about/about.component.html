@@ -1,10 +1,14 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
-    <h1>
-      <span translate>APP_NAME</span>
-    </h1>
-    <p>
-      <i class="far fa-bookmark"></i> <span translate>Version</span> {{version}}
-    </p>
+    <h1 class="mb-2"><span translate>Records</span></h1>
+
+    <div *ngFor="let record of mnRecords" class="display-center mt-3">
+      <p style="min-width: 5rem" class="mb-0 ml-2 font-weight-bold">Value: {{ record.mainValue }}</p>
+      <div class="info-value" *ngFor="let value of record.data">
+        <div class="display-center" [ngClass]="setItemClass(record, value)">
+          {{ value }}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

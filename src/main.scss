@@ -15,3 +15,52 @@
 
 // Theme customization
 @import "theme/theme";
+
+.display-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-bg {
+  background: url("/assets/images/public/branding/login-background.svg") no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  overflow: hidden;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.info-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  div {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+  p {
+    margin-bottom: 0;
+    margin-left: 5px;
+    font-size: 15px;
+  }
+}
+
+.bg-green {
+  background-color: #61b323;
+  color: white;
+}
+
+.bg-red {
+  background-color: #b33838;
+  color: white;
+}
+
+.bg-blue {
+  background-color: #13a3da;
+  color: white;
+}

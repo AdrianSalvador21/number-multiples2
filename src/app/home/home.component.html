@@ -1,10 +1,54 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
-    <h1>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
-      <span translate>Hello world !</span>
-    </h1>
-    <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{quote}}</q>
+    <div class="row info-container">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <h1>Calculate multiples</h1>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter a number</label>
+            <input
+              [(ngModel)]="mainValue"
+              name="mainValue"
+              placeholder="Number"
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <small id="emailHelp" class="form-text text-muted">Enter a number to get its multiples.</small>
+          </div>
+          <button type="button" class="btn calculate-button" (click)="calculate()">Calculate</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="w-100 display-center mt-5" *ngIf="main_multiple_array.length !== 0">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="info-container-card">
+          <div class="info-detail">
+            <div class="bg-green"></div>
+            <p>Multiples of 3</p>
+          </div>
+
+          <div class="info-detail">
+            <div class="bg-red"></div>
+            <p>Multiples of 5</p>
+          </div>
+
+          <div class="info-detail">
+            <div class="bg-blue"></div>
+            <p>Multiples of 7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 col-md-3 col-lg-2" *ngFor="let item of main_multiple_array">
+        <ul class="list-group">
+          <li class="list-group-item mb-2" [ngClass]="setListItemClass(item)">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

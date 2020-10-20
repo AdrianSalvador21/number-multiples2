@@ -12,5 +12,14 @@ export const environment = {
   version: env.npm_package_version,
   serverUrl: 'https://api.chucknorris.io',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US', 'fr-FR']
+  supportedLanguages: ['en-US', 'fr-FR'],
+  firebase: {
+    apiKey: 'AIzaSyAw4wbgPlIr_2r5yshD5morui9ManW2Ydw',
+    authDomain: 'numbers-multiples.firebaseapp.com',
+    databaseURL: 'https://numbers-multiples.firebaseio.com',
+    projectId: 'numbers-multiples',
+    storageBucket: 'numbers-multiples.appspot.com',
+    messagingSenderId: '676748286005',
+    appId: '1:676748286005:web:f05f7d263bbab96f70397c',
+  },
 };
